@@ -1,0 +1,39 @@
+<div *ngFor="let product of products; let index = index;" fxLayout="row" fxLayoutGap="10px">
+  <div fxFlex>{{product.name}}</div>
+  <div fxFlex>
+    <input type="number" name="qty" min="1" max="110" [(ngModel)]="product.count" (change)="change()"/>
+  </div>
+  <div fxFlex>{{product.price * product.count}}</div>
+  <div fxFlex>
+    <button (click)="remove(index)">Remove</button>
+  </div>
+</div>
+
+<div fxLayout="row">
+  <span>Enter Promo Code</span>
+  <input type="text" [(ngModel)]="promoCode" (click)="applyPromoCode()" />
+  <button>Apply</button>
+</div>
+
+<div>
+  <div fxLayout="row" fxLayoutGap="10px">
+    <div fxFlex="70%" fxLayout="row" fxLayoutAlign="end center">Sub Total</div>
+    <div fxFlex="30%">{{getSubTotal}}</div>
+  </div>
+  <div fxLayout="row" fxLayoutGap="10px">
+    <div fxFlex="70%" fxLayout="row" fxLayoutAlign="end center">Promotional Discount amount</div>
+    <div fxFlex="30%"></div>
+  </div>
+  <div fxLayout="row" fxLayoutGap="10px">
+    <div fxFlex="70%" fxLayout="row" fxLayoutAlign="end center">Basket Total</div>
+    <div fxFlex="30%"></div>
+  </div>
+  <div fxLayout="row" fxLayoutGap="10px">
+    <div fxFlex="70%" fxLayout="row" fxLayoutAlign="end center">Please enter your credit card number</div>
+    <div fxFlex="30%"><input type="text" [(ngModel)]="ccNumber" /></div>
+  </div>
+</div>
+
+<div fxLayout="row" fxLayoutAlign="end center">
+  <button (click)="checkout()">Checkout</button>
+</div>

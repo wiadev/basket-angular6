@@ -1,0 +1,11 @@
+<div *ngFor="let product of products" fxLayout="row" fxLayoutGap="10px">
+  <div fxFlex>{{product.name}}</div>
+  <div fxFlex>{{product.price}}</div>
+  <div fxFlex>
+    <button (click)="add(product)">Add to basket</button>
+  </div>
+</div>
+
+<footer fxLayout="row" fxLayoutAlign="end center">
+  <button routerLink="/checkout">Proceed to checkout</button>
+</footer>
